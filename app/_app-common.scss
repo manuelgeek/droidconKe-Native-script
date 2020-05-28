@@ -1,0 +1,84 @@
+@import "~@nativescript/theme/core";
+@import "~@nativescript/theme/blue";
+.ns-root {
+    --black-color-c: #191D1D;
+    --white-color-c: #fff;
+    --ash-color-c: #F6F6F8;
+    --green-color-c: #68DEA4;
+    --green-color-light-c: #02804175;
+    --purple-color-light-c: #DECFE3;
+    --purple-color-c: #843D95;
+    --gray-color-c: #707070;
+
+    font-style: Roboto;
+}
+.bg-ash-c {
+    background-color: var(--ash-color-c);
+}
+.bg-white-c {
+    background-color: var(--white-color-c);
+}
+.bg-purple-c {
+    background-color: var(--purple-color-c);
+}
+.bg-purple-light-c {
+    background-color: var(--purple-color-light-c);
+}
+.white {
+    color: var(--white-color-c);
+}
+.black {
+    color: var(--black-color-c);
+}
+.green {
+    color: var(--green-color-c);
+}
+.gray {
+    color: var(--gray-color-c);
+}
+.purple {
+    color: var(--purple-color-c);
+}
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+
+// Font icon class
+.fab {
+    font-family: "Font Awesome 5 Brands", "fa-brands-400";
+    font-weight: 400;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+    font-weight: 900;
+}
+
+.far {
+    font-family: "Font Awesome 5 Free", "fa-regular-400";
+    font-weight: 400;
+}
+
+// Custom tabstrip item class
+.navigation__item {
+    &:active,
+    &:active Label {
+        @include colorize($color: complementary);
+    }
+}
+
+// Common page class
+.page__content {
+    &-icon,
+    &-placeholder {
+        color: const(grey);
+        font-size: 20;
+        vertical-align: center;
+        horizontal-align: center;
+    }
+
+    &-icon {
+        font-size: 72;
+        vertical-align: top;
+        margin-top: 20%;
+    }
+}
