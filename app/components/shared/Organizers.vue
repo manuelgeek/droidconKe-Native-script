@@ -1,6 +1,6 @@
 <template>
     <StackLayout verticalAlignment="center" androidElevation="3" horizontalAlignment="center" class="rounded-lg shadow-lg bg-white-c p-4 mt-3 mb-3">
-        <Label text="Organized By;" fontSize="24" class="w-full black font-bold font-weight-bold mt-5 text-center"/>
+        <Label text="Organized By;" fontSize="24" class="w-full roboto-slab black font-bold font-weight-bold mt-5 text-center"/>
         <StackLayout orientation="horizontal" horizontalAlignment="center" class="w-full text-center mt-5">
             <StackLayout class="w-1/4 px-3">
                 <Image src="~/assets/images/orgs/ihub.png"  class="w-30" verticalAlignment="center" />

@@ -11,7 +11,16 @@
     --gray-color-c: #707070;
     --yellow-color-c: #FFD54A;
 
-    font-style: Roboto;
+    font-family: 'Roboto', 'Roboto-Regular', sans-serif;
+}
+.roboto-slab {
+    font-family: "Roboto Slab Bold", "RobotoSlab-Bold", sans-serif;
+}
+.roboto-slab-r {
+    font-family: "Roboto Slab", "RobotoSlab-Regular", sans-serif;
+}
+.roboto-bold {
+    font-family: 'Roboto Bold', 'Roboto-Bold', sans-serif;
 }
 .bg-ash-c {
     background-color: var(--ash-color-c);
@@ -24,6 +33,12 @@
 }
 .bg-purple-light-c {
     background-color: var(--purple-color-light-c);
+}
+.bg-green-c {
+    background-color: var(--green-color-c);
+}
+.bg-green-light-c {
+    background-color: var(--green-color-light-c);
 }
 .white {
     color: var(--white-color-c);
@@ -45,7 +60,6 @@
 }
 // Place any CSS rules you want to apply on both iOS and Android here.
 // This is where the vast majority of your CSS code goes.
-
 // Font icon class
 .fab {
     font-family: "Font Awesome 5 Brands", "fa-brands-400";

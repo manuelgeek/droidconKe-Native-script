@@ -48,14 +48,12 @@
 
 <script>
     import Index from "./home_page/Index.vue"
-import Items from "./Items.vue";
 import Browse from "./Browse.vue";
 import Search from "./Search.vue";
 import Star from "./Star.vue";
 
 export default {
   components: {
-    Items,
     Browse,
     Search,
     Star,
