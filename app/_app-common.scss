@@ -9,6 +9,7 @@
     --purple-color-light-c: #DECFE3;
     --purple-color-c: #843D95;
     --gray-color-c: #707070;
+    --yellow-color-c: #FFD54A;
 
     font-style: Roboto;
 }
@@ -39,6 +40,9 @@
 .purple {
     color: var(--purple-color-c);
 }
+.yellow {
+    color: var(--yellow-color-c);
+}
 // Place any CSS rules you want to apply on both iOS and Android here.
 // This is where the vast majority of your CSS code goes.
 
@@ -62,7 +66,7 @@
 .navigation__item {
     &:active,
     &:active Label {
-        @include colorize($color: complementary);
+        color: var(--yellow-color-c);
     }
 }
 
