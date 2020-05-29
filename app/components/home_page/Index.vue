@@ -1,30 +1,9 @@
 <template>
     <Page>
-        <ActionBar class="bg-ash-c" flat="true">
-            <GridLayout orientation="horizontal" class="py-1 w-full px-3">
-                <Image src="~/assets/images/app.png" width="40" height="40" alignSelf="flex-start" verticalAlignment="center" horizontalAlignment="left" />
-                <StackLayout orientation="horizontal" horizontalAlignment="center" class="mt-2 mb-2 px-0 rounded-full bg-green-100 border-2 border-green-400 roboto-bold">
-                    <StackLayout verticalAlignment="center" class="px-3 -mt-3 -mb-3">
-                        <Image src.decode="font://&#xf017;" class="fas t-36 green" width="20" height="20" />
-                    </StackLayout>
-                    <StackLayout orientation="vertical" class="px-3 -mt-3 -mb-3">
-                        <Label text="194" fontSize="24" class="black font-bold" />
-                        <Label text="Days" fontSize="10" class="-mt-8 green" />
-                    </StackLayout>
-                    <StackLayout orientation="vertical" class="px-3 -mt-3 -mb-3">
-                        <Label text="11" fontSize="24" class="black font-bold" />
-                        <Label text="Hrs" fontSize="10" class="-mt-8 green" />
-                    </StackLayout>
-                    <StackLayout orientation="vertical" class="px-3 -mt-3 -mb-3">
-                        <Label text="56" fontSize="24" class="black font-bold" />
-                        <Label text="Mins" fontSize="10" class="-mt-8 green" />
-                    </StackLayout>
-                </StackLayout>
-                <StackLayout class="bg-white-c rounded-full px-3" verticalAlignment="center"  horizontalAlignment="right" width="40" height="40" >
-                    <Image src.decode="font://&#xf023;" class="fas t-36 green" verticalAlignment="center" />
-                </StackLayout>
-            </GridLayout>
-        </ActionBar>
+        <MyActionBar>
+            <CountDown />
+        </MyActionBar>
+
         <ScrollView>
             <StackLayout class="bg-ash-c px-3 w-full">
                 <Image src="~/assets/images/black-friday-twitter.png"  class="w-full mt-3 mb-3 rounded-lg " verticalAlignment="center" />
@@ -67,8 +46,10 @@
     import Sponsors from "~/components/shared/Sponsors";
     import SessionsPreview from "~/components/home_page/partials/SessionsPreview";
     import SpeakersPreview from "~/components/home_page/partials/SpeakersPreview";
+    import MyActionBar from "~/components/shared/ActionBar";
+    import CountDown from "~/components/home_page/partials/CountDown";
     export default {
-        components: {SpeakersPreview, SessionsPreview, Sponsors, Organizers}
+        components: {CountDown, MyActionBar, SpeakersPreview, SessionsPreview, Sponsors, Organizers}
     }
 </script>
 

@@ -27,7 +27,7 @@
 
         <TabContentItem>
             <Frame>
-                <Browse />
+                <Feeds />
             </Frame>
         </TabContentItem>
 
@@ -48,13 +48,13 @@
 
 <script>
     import Index from "./home_page/Index.vue"
-import Browse from "./Browse.vue";
 import Search from "./Search.vue";
 import Star from "./Star.vue";
+    import Feeds from "~/components/home_page/Feeds";
 
 export default {
   components: {
-    Browse,
+      Feeds,
     Search,
     Star,
     Index

@@ -9,6 +9,7 @@
     --purple-color-light-c: #DECFE3;
     --purple-color-c: #843D95;
     --gray-color-c: #707070;
+    --gray-color-light-c: #C3C3C3;
     --yellow-color-c: #FFD54A;
 
     font-family: 'Roboto', 'Roboto-Regular', sans-serif;
@@ -51,6 +52,9 @@
 }
 .gray {
     color: var(--gray-color-c);
+}
+.gray-light {
+    color: var(--gray-color-light-c);
 }
 .purple {
     color: var(--purple-color-c);
