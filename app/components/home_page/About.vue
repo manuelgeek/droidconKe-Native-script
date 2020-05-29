@@ -1,7 +1,7 @@
 <template>
     <Page actionBarHidden="true">
         <ScrollView>
-            <StackLayout orientation="vertical" class="bg-ash-c" height="100%">
+            <StackLayout orientation="vertical" class="bg-ash-c">
                 <Image src="~/assets/images/org.png" class="w-full"/>
                 <StackLayout orientation="vertical" class="px-3">
                     <Label text="About" fontSize="22" class="w-full roboto-slab py-3 mt-3 purple" />
