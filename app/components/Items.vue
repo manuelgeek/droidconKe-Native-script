@@ -93,8 +93,10 @@ export default {
             const view = args.view;
             const page = view.page;
             const tappedItem = view.bindingContext;
+            console.log('ggg');
 
             this.$navigateTo(ItemDetails, {
+          frame: "sessions" ,
                 props: {
                     context: tappedItem,
                     animated: true,

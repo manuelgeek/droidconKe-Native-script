@@ -1,18 +1,19 @@
 <template>
     <ActionBar class="bg-ash-c px-3" flat="true" >
         <GridLayout orientation="horizontal" class="py-1">
-            <Image src="~/assets/images/app.png" width="40" height="40" verticalAlignment="center" horizontalAlignment="left" />
+            <Icon />
             <slot></slot>
-            <StackLayout class="bg-white-c rounded-full px-3" verticalAlignment="center"  horizontalAlignment="right" width="40" height="40" >
-                <Image src.decode="font://&#xf023;" class="fas t-36 green" verticalAlignment="center" />
-            </StackLayout>
+            <Avatar />
         </GridLayout>
     </ActionBar>
 </template>
 
 <script>
+import Avatar from "~/components/shared/action_bar/Avatar";
+import Icon from "~/components/shared/action_bar/Icon";
 export default {
-    name: 'MyActionBar'
+    name: 'MyActionBar',
+    components: {Icon, Avatar}
 }
 </script>
 

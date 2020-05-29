@@ -20,25 +20,25 @@
         </TabStrip>
 
         <TabContentItem>
-            <Frame>
+            <Frame id="index">
                 <Index />
             </Frame>
         </TabContentItem>
 
         <TabContentItem>
-            <Frame>
+            <Frame id="feeds">
                 <Feeds />
             </Frame>
         </TabContentItem>
 
         <TabContentItem>
-            <Frame>
-                <Search />
+            <Frame id="sessions" >
+                <Sessions />
             </Frame>
         </TabContentItem>
 
         <TabContentItem>
-            <Frame>
+            <Frame id="about">
                 <About />
             </Frame>
         </TabContentItem>
@@ -48,15 +48,15 @@
 
 <script>
     import Index from "./home_page/Index.vue"
-import Search from "./Search.vue";
     import Feeds from "~/components/home_page/Feeds";
     import About from "~/components/home_page/About";
+    import Sessions from "~/components/home_page/sessions/Sessions";
 
 export default {
   components: {
+      Sessions,
       About,
       Feeds,
-    Search,
     Index
   }
 };
