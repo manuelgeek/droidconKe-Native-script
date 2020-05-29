@@ -39,7 +39,7 @@
 
         <TabContentItem>
             <Frame>
-               <Star />
+                <About />
             </Frame>
         </TabContentItem>
 
@@ -49,14 +49,14 @@
 <script>
     import Index from "./home_page/Index.vue"
 import Search from "./Search.vue";
-import Star from "./Star.vue";
     import Feeds from "~/components/home_page/Feeds";
+    import About from "~/components/home_page/About";
 
 export default {
   components: {
+      About,
       Feeds,
     Search,
-    Star,
     Index
   }
 };
