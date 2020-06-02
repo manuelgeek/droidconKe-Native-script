@@ -2,7 +2,8 @@ import Vue from "nativescript-vue";
 
 import App from "./components/App";
 import 'nativescript-tailwind/dist/tailwind.css'
-// Vue.registerElement('SVGImage', () => require('@exeleon/nativescript-svg').SVGImage);
+
+Vue.registerElement('StarRate', () => require('nativescript-star-ratings').StarRating);
 
 new Vue({
     render: h => h(App)
