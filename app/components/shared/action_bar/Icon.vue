@@ -3,6 +3,9 @@
 </template>
 
 <script>
+
+import Index from "~/components/home_page/Index";
+
 export default {
     name: 'Icon'
 }

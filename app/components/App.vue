@@ -1,49 +1,53 @@
 <template lang="html">
-    <BottomNavigation>
-        <TabStrip>
-            <TabStripItem class="navigation__item">
-                <Label text="Home"></Label>
-                <Image src.decode="font://&#xf015;" class="fas t-36"></Image>
-            </TabStripItem>
-            <TabStripItem class="navigation__item">
-                <Label text="Feed"></Label>
-                <Image src.decode="font://&#xf0f3;" class="fas t-36"></Image>
-            </TabStripItem>
-            <TabStripItem class="navigation__item">
-                <Label text="Sessions"></Label>
-                <Image src.decode="font://&#xf017;" class="fas t-36"></Image>
-            </TabStripItem>
-            <TabStripItem class="navigation__item">
-                <Label text="About"></Label>
-                <Image src.decode="font://&#xf621;" class="fas t-36"></Image>
-            </TabStripItem>
-        </TabStrip>
+    <Frame id="main-app">
+        <Page actionBarHidden="true">
+            <BottomNavigation>
+                <TabStrip>
+                    <TabStripItem class="navigation__item">
+                        <Label text="Home"></Label>
+                        <Image src.decode="font://&#xf015;" class="fas t-36"></Image>
+                    </TabStripItem>
+                    <TabStripItem class="navigation__item">
+                        <Label text="Feed"></Label>
+                        <Image src.decode="font://&#xf0f3;" class="fas t-36"></Image>
+                    </TabStripItem>
+                    <TabStripItem class="navigation__item">
+                        <Label text="Sessions"></Label>
+                        <Image src.decode="font://&#xf017;" class="fas t-36"></Image>
+                    </TabStripItem>
+                    <TabStripItem class="navigation__item">
+                        <Label text="About"></Label>
+                        <Image src.decode="font://&#xf621;" class="fas t-36"></Image>
+                    </TabStripItem>
+                </TabStrip>
 
-        <TabContentItem>
-            <Frame id="index">
-                <Index />
-            </Frame>
-        </TabContentItem>
+                <TabContentItem>
+                    <Frame id="index">
+                        <Index />
+                    </Frame>
+                </TabContentItem>
 
-        <TabContentItem>
-            <Frame id="feeds">
-                <Feeds />
-            </Frame>
-        </TabContentItem>
+                <TabContentItem>
+                    <Frame id="feeds">
+                        <Feeds />
+                    </Frame>
+                </TabContentItem>
 
-        <TabContentItem>
-            <Frame id="sessions" >
-                <Sessions />
-            </Frame>
-        </TabContentItem>
+                <TabContentItem>
+                    <Frame id="sessions" >
+                        <Sessions />
+                    </Frame>
+                </TabContentItem>
 
-        <TabContentItem>
-            <Frame id="about">
-                <About />
-            </Frame>
-        </TabContentItem>
+                <TabContentItem>
+<!--                    <Frame id="about">-->
+                        <About />
+<!--                    </Frame>-->
+                </TabContentItem>
 
-    </BottomNavigation>
+            </BottomNavigation>
+        </Page>
+    </Frame>
 </template>
 
 <script>

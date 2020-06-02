@@ -29,7 +29,7 @@
                 <StackLayout verticalAlignment="center" androidElevation="3" horizontalAlignment="center" class="rounded-lg shadow-lg bg-white-c p-4 mt-4 mb-3">
                     <Label text="Keynote Speaker" fontSize="24" class="w-full black font-bold roboto-slab mt-5 text-center"/>
                     <StackLayout orientation="vertical" horizontalAlignment="center" class="w-full text-center mt-5">
-                        <Image src="~/assets/images/speakers/AlexKoller.png"  class="w-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                        <Image src="~/assets/images/speakers/AlexKoller.png"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                         <Label text="Allex Koller" fontSize="16" class="w-full gray font-bold"/>
                     </StackLayout>
                     <Label text="Become a Speaker" fontSize="20" class="w-full text-center mt-5 purple underline font-bold "/>

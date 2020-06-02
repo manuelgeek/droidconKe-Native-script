@@ -1,5 +1,5 @@
 <template>
-    <Page actionBarHidden="true">
+<!--    <Page actionBarHidden="true">-->
         <ScrollView>
             <StackLayout orientation="vertical" class="bg-ash-c">
                 <Image src="~/assets/images/org.png" class="w-full"/>
@@ -84,7 +84,7 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-    </Page>
+<!--    </Page>-->
 </template>
 
 <script>

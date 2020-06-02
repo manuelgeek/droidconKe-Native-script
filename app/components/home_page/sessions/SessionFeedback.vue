@@ -60,6 +60,9 @@
         methods: {
             onButtonTap() {
                 console.log("Button was pressed");
+                const Frame = require("tns-core-modules/ui/frame").Frame;
+                // console.log(Frame.topmost())
+                console.log(Frame.getFrameById('index'))
             },
             onScroll
         }

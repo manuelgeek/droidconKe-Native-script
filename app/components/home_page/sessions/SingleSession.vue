@@ -1,6 +1,5 @@
 <template>
     <Page actionBarHidden="true">
-
         <ScrollView ref="scrollView" @scroll="onScroll">
             <StackLayout>
                 <StackLayout ref="topView" verticalAlignment="center" height="170"
