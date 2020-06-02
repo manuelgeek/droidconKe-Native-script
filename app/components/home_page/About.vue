@@ -12,21 +12,21 @@
                     <FlexboxLayout justifyContent="space-around" flexWrap="wrap" flexDirection="row" class="w-full mt-3">
                         <StackLayout orientation="vertical" horizontalAlignment="left" class="w-32 text-center mb-4">
                             <StackLayout class="p-3 bg-green-200 rounded-lg">
-                                <Image src="~/assets/images/speakers/AlexKoller.png"  class="w-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                                <Image src="~/assets/images/speakers/AlexKoller.png"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                             </StackLayout>
                             <Label text="Allex Koller" fontSize="15" textWrap="true" class="w-32 gray font-bold mt-2"/>
                             <Label text="Main man" fontSize="12" textWrap="true" class="w-32 gray"/>
                         </StackLayout>
                         <StackLayout orientation="vertical" horizontalAlignment="center" class="w-32 text-center mb-4">
                             <StackLayout class="p-3 bg-green-200 rounded-lg">
-                                <Image src="~/assets/images/speakers/MichaelBukachi.png"  class="w-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                                <Image src="~/assets/images/speakers/MichaelBukachi.png"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                             </StackLayout>
                             <Label text="Ahmed Maawy" fontSize="15" textWrap="true" class="w-32 gray font-bold mt-2"/>
                             <Label text="Gang Gang" fontSize="12" textWrap="true" class="w-32 gray"/>
                         </StackLayout>
                         <StackLayout orientation="vertical" horizontalAlignment="center" class="w-32 text-center mb-4">
                             <StackLayout class="p-3 bg-green-200 rounded-lg">
-                                <Image src="~/assets/images/speakers/CarolWarugongo.png"  class="w-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                                <Image src="~/assets/images/speakers/CarolWarugongo.png"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                             </StackLayout>
                             <Label text="Moyinoluwa Adeyemi" fontSize="15" textWrap="true" class="w-32 gray font-bold mt-2"/>
                             <Label text="Fifa Winner" fontSize="12" textWrap="true" class="w-32 gray"/>
@@ -34,21 +34,21 @@
 
                         <StackLayout orientation="vertical" horizontalAlignment="left" class="w-32 text-center mb-4">
                             <StackLayout class="p-3 bg-green-200 rounded-lg">
-                                <Image src="~/assets/images/speakers/AlexKoller.png"  class="w-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                                <Image src="~/assets/images/speakers/AlexKoller.png"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                             </StackLayout>
                             <Label text="Allex Koller" fontSize="15" textWrap="true" class="w-32 gray font-bold mt-2"/>
                             <Label text="Main man" fontSize="12" textWrap="true" class="w-32 gray"/>
                         </StackLayout>
                         <StackLayout orientation="vertical" horizontalAlignment="center" class="w-32 text-center mb-4">
                             <StackLayout class="p-3 bg-green-200 rounded-lg">
-                                <Image src="~/assets/images/speakers/MichaelBukachi.png"  class="w-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                                <Image src="~/assets/images/speakers/MichaelBukachi.png"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                             </StackLayout>
                             <Label text="Ahmed Maawy" fontSize="15" textWrap="true" class="w-32 gray font-bold mt-2"/>
                             <Label text="Gang Gang" fontSize="12" textWrap="true" class="w-32 gray"/>
                         </StackLayout>
                         <StackLayout orientation="vertical" horizontalAlignment="center" class="w-32 text-center mb-4">
                             <StackLayout class="p-3 bg-green-200 rounded-lg">
-                                <Image src="~/assets/images/speakers/CarolWarugongo.png"  class="w-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                                <Image src="~/assets/images/speakers/CarolWarugongo.png"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                             </StackLayout>
                             <Label text="Moyinoluwa Adeyemi" fontSize="15" textWrap="true" class="w-32 gray font-bold mt-2"/>
                             <Label text="Fifa Winner" fontSize="12" textWrap="true" class="w-32 gray"/>
@@ -56,21 +56,21 @@
 
                         <StackLayout orientation="vertical" horizontalAlignment="left" class="w-32 text-center mb-4">
                             <StackLayout class="p-3 bg-green-200 rounded-lg">
-                                <Image src="~/assets/images/speakers/AlexKoller.png"  class="w-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                                <Image src="~/assets/images/speakers/AlexKoller.png"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                             </StackLayout>
                             <Label text="Allex Koller" fontSize="15" textWrap="true" class="w-32 gray font-bold mt-2"/>
                             <Label text="Main man" fontSize="12" textWrap="true" class="w-32 gray"/>
                         </StackLayout>
                         <StackLayout orientation="vertical" horizontalAlignment="center" class="w-32 text-center mb-4">
                             <StackLayout class="p-3 bg-green-200 rounded-lg">
-                                <Image src="~/assets/images/speakers/MichaelBukachi.png"  class="w-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                                <Image src="~/assets/images/speakers/MichaelBukachi.png"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                             </StackLayout>
                             <Label text="Ahmed Maawy" fontSize="15" textWrap="true" class="w-32 gray font-bold mt-2"/>
                             <Label text="Gang Gang" fontSize="12" textWrap="true" class="w-32 gray"/>
                         </StackLayout>
                         <StackLayout orientation="vertical" horizontalAlignment="center" class="w-32 text-center mb-4">
                             <StackLayout class="p-3 bg-green-200 rounded-lg">
-                                <Image src="~/assets/images/speakers/CarolWarugongo.png"  class="w-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                                <Image src="~/assets/images/speakers/CarolWarugongo.png"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                             </StackLayout>
                             <Label text="Moyinoluwa Adeyemi" fontSize="15" textWrap="true" class="w-32 gray font-bold mt-2"/>
                             <Label text="Fifa Winner" fontSize="12" textWrap="true" class="w-32 gray"/>
