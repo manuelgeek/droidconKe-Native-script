@@ -5,7 +5,7 @@
                 <Label text="Feed" fontSize="20" class="roboto-slab purple"/>
             </StackLayout>
         </MyActionBar>
-        <ListView class="w-full bg-ash-c px-3" for="country in countries" @itemTap="onItemTap" height="100%">
+        <ListView class="w-full bg-ash-c px-2" for="country in countries" @itemTap="onItemTap" height="100%">
             <v-template>
                 <StackLayout class="py-3">
                     <StackLayout orientation="vertical" class="w-full bg-white-c rounded-lg px-3">

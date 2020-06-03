@@ -1,7 +1,7 @@
 <template>
     <Page>
         <MyActionBar>
-            <StackLayout orientation="horizontal" horizontalAlignment="center">
+            <StackLayout orientation="horizontal" horizontalAlignment="center" @tap="openModal">
                 <Label text="Filter" fontSize="20" class="roboto-slab gray"/>
                 <Image src.decode="font://&#xf0b0;" width="20" class="fas purple t-36"></Image>
             </StackLayout>
@@ -136,6 +136,7 @@
 <script>
     import MyActionBar from "~/components/shared/ActionBar";
     import SingleSession from "~/components/home_page/sessions/SingleSession";
+    import FilterSessions from "~/components/home_page/sessions/FilterSessions";
 
     export default {
         name: 'Sessions',
@@ -152,6 +153,9 @@
                     },
                     frame: "sessions"
                 });
+            },
+            openModal () {
+                this.$showModal(FilterSessions, { });
             }
         }
     }

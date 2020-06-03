@@ -1,7 +1,7 @@
 <template lang="html">
     <Frame id="main-app">
-        <Page actionBarHidden="true" backgroundSpanUnderStatusBar="true" androidStatusBarBackground="red"
-              statusBarStyle="light" @loaded="pageLoaded">
+        <Page actionBarHidden="true" backgroundSpanUnderStatusBar="true" androidStatusBarBackground="#FFD54A"
+              statusBarStyle="light">
 
             <BottomNavigation>
                 <TabStrip>
@@ -58,33 +58,12 @@
     import About from "~/components/home_page/About";
     import Sessions from "~/components/home_page/sessions/Sessions";
 
-    const app = require("tns-core-modules/application");
-    const platform = require("tns-core-modules/platform");
-    const color = require("tns-core-modules/color");
     export default {
         components: {
             Sessions,
             About,
             Feeds,
             Index
-        },
-        // created() {
-        //     setTimeout ( () => { this.pageLoaded() } , 100 );
-        // },
-        methods: {
-            pageLoaded(args) {
-                // var page = args.object;
-                // console.log(page)
-                const View = android.view.View;
-
-                if (app.android && platform.device.sdkVersion >= '21') {
-                    var window = app.android.startActivity.getWindow();
-                    // set the status bar to Color.Transparent
-                    window.setStatusBarColor(new color.Color('#3489db').android);
-                    window.setNavigationBarColor(new color.Color('#3489db').android);
-                }
-            },
-
         }
     };
 </script>
