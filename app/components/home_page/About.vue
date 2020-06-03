@@ -4,8 +4,8 @@
             <StackLayout orientation="vertical" class="bg-ash-c">
                 <Image src="~/assets/images/org.png" class="w-full"/>
                 <StackLayout orientation="vertical" class="px-3">
-                    <Label text="About" fontSize="22" class="w-full roboto-slab py-3 mt-3 purple" />
-                    <TextView fontSize="16" class="w-full gray mt-3" editable="false">{{about}}</TextView>
+                    <Label text="About" fontSize="20" class="w-full roboto-slab py-3 mt-3 purple" />
+                    <TextView fontSize="15" class="w-full gray mt-3" editable="false">{{about}}</TextView>
                 </StackLayout>
                 <StackLayout orientation="vertical" class="px-3 mt-3 mb-5">
                     <Label text="Organizing Team" fontSize="22" class="w-full text-center roboto-slab py-3 mt-3 purple" />

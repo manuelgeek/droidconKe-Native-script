@@ -19,25 +19,25 @@
                     </StackLayout>
                     <StackLayout class="px-3 mt-5">
                         <Label text="Abraham Lincoln" fontSize="20" class="roboto-slab purple" textWrap="true" />
-                        <Label text="Qene Technologies, Gebeya | Game Dev, Android Dev & Trainer" fontSize="16" class="gray" textWrap="true" />
+                        <Label text="Qene Technologies, Gebeya | Game Dev, Android Dev & Trainer" fontSize="14" class="gray" textWrap="true" />
                         <StackLayout orientation="horizontal">
                             <Image src.decode="font://&#xf099;" width="16" class="fab green t-36 mr-2"></Image>
-                            <Label text="Panel" class="purple" fontSize="15" textWrap="true" />
+                            <Label text="Panel" class="purple" fontSize="16" textWrap="true" />
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
                 <StackLayout width="100%" class="bg-ash-c px-3 py-4">
 
                     <StackLayout>
-                        <Label text="Bio:" fontSize="20" class="gray roboto-slab mt-2 mb-3" />
-                        <Label textWrap="true" fontSize="16" class="gray" text="Tart muffin marshmallow marzipan cake. Brownie liquorice marzipan chupa chups wafer jelly beans liquorice candy cake. Lollipop icing halvah marzipan candy canes liquorice. Sesame snaps brownie dessert chocolate bar wafer brownie. Cupcake gingerbread tiramisu jelly liquorice jujubes gummi bears. Cotton candy marshmallow cotton candy tiramisu jelly sweet caramels marshmallow halvah. Chupa chups muffin candy. Tart topping dessert sweet dessert dragée cake cupcake chupa chups. Gummies tootsie roll dragée jelly beans candy canes jelly-o chocolate carrot cake."
+                        <Label text="Bio:" fontSize="18" class="gray roboto-slab mt-2 mb-3" />
+                        <Label textWrap="true" fontSize="15" class="gray" text="Tart muffin marshmallow marzipan cake. Brownie liquorice marzipan chupa chups wafer jelly beans liquorice candy cake. Lollipop icing halvah marzipan candy canes liquorice. Sesame snaps brownie dessert chocolate bar wafer brownie. Cupcake gingerbread tiramisu jelly liquorice jujubes gummi bears. Cotton candy marshmallow cotton candy tiramisu jelly sweet caramels marshmallow halvah. Chupa chups muffin candy. Tart topping dessert sweet dessert dragée cake cupcake chupa chups. Gummies tootsie roll dragée jelly beans candy canes jelly-o chocolate carrot cake."
                         />
 
                         <FlexboxLayout class="mt-16 mb-10">
-                            <Label text="Twitter Handle" fontSize="17" class="purple pr-3" textWrap="true" />
+                            <Label text="Twitter Handle" fontSize="16" class="purple pr-3" textWrap="true" />
                            <StackLayout>
                                <FlexboxLayout justifyContent="space-between" class="rounded-full px-3 py-1 bg-white-c">
-                                   <Label text="@Dawit AbrahamMB" fontSize="16" class="green pr-3" textWrap="true" />
+                                   <Label text="@Dawit AbrahamMB" fontSize="15" class="green pr-3" textWrap="true" />
                                    <Image src.decode="font://&#xf0c5;" width="16" class="far gray t-36"></Image>
                                </FlexboxLayout>
                                <Label text="tap to copy handle" class="gray italic px-1" horizontalAlignment="right" />

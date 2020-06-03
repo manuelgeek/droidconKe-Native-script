@@ -9,11 +9,11 @@
             <v-template>
                 <StackLayout class="py-3">
                     <StackLayout orientation="vertical" class="w-full bg-white-c rounded-lg px-3">
-                        <Label text="We are pleased to have a team from Andela Kenya who will have a talk about Software Engineers to the Power of X from an Employer's Perspective." class="gray" fontSize="16" textWrap="true"/>
+                        <Label text="We are pleased to have a team from Andela Kenya who will have a talk about Software Engineers to the Power of X from an Employer's Perspective." class="gray" fontSize="15" textWrap="true"/>
                         <Image src="~/assets/images/img.png" class="w-full rounded-lg"/>
                         <FlexboxLayout justifyContent="space-between">
                             <StackLayout orientation="horizontal" class="text-left">
-                                <Image src.decode="font://&#xf017;" class="fas t-36 gray-light mr-1" width="20"></Image>
+                                <Image src.decode="font://&#xf017;" class="fas t-36 gray-light mr-1" width="15"></Image>
                                 <Label text="10:35 AM" fontSize="13" class="font-bold gray-light uppercase"/>
                             </StackLayout>
                             <StackLayout orientation="horizontal" class="text-right">
