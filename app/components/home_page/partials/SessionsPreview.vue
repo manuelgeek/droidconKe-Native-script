@@ -4,14 +4,14 @@
             <StackLayout class="w-2/3">
                 <Label text="Sessions" fontSize="24" class="w-full black font-bold roboto-slab font-weight-bold text-left"/>
             </StackLayout>
-            <StackLayout orientation="horizontal" class="w-1/3 text-right">
+            <StackLayout orientation="horizontal" class="w-1/3 text-right" @tap="onAllTap">
                 <Label text="View All" fontSize="15" verticalAlignment="center" class="w-1/2 purple font-bold mr-2"/>
                 <Label text="+12" fontSize="13" class="w-1/2 purple bg-purple-light-c text-center rounded-full px-3 py-0 h-6"/>
             </StackLayout>
         </StackLayout>
         <ScrollView orientation="horizontal" class="w-full mt-3 mb-3">
             <StackLayout orientation="horizontal" height="270">
-                <StackLayout orientation="vertical" class="w-2/3 rounded-lg bg-white-c mr-3">
+                <StackLayout orientation="vertical" class="w-2/3 rounded-lg bg-white-c mr-3" @tap="onSessionTap(2)">
                     <Image src="~/assets/images/Greg Keynote.png"  class="w-full" height="160" verticalAlignment="center" />
                     <DockLayout class="px-3 mt-2">
                         <StackLayout orientation="horizontal" dock="left" class="w-1/2 text-left">
@@ -28,7 +28,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout orientation="vertical" class="w-2/3 rounded-lg bg-white-c mr-3">
+                <StackLayout orientation="vertical" class="w-2/3 rounded-lg bg-white-c mr-3" @tap="onSessionTap(2)">
                     <Image src="~/assets/images/Dawit Abraham.png"  class="w-full" height="160" verticalAlignment="center" />
                     <DockLayout class="px-3 mt-2">
                         <StackLayout orientation="horizontal" dock="left" class="w-1/2 text-left">
@@ -45,7 +45,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout orientation="vertical" class="w-2/3 rounded-lg bg-white-c mr-3">
+                <StackLayout orientation="vertical" class="w-2/3 rounded-lg bg-white-c mr-3" @tap="onSessionTap(2)">
                     <Image src="~/assets/images/Greg Keynote.png"  class="w-full" height="160" verticalAlignment="center" />
                     <DockLayout class="px-3 mt-2">
                         <StackLayout orientation="horizontal" dock="left" class="w-1/2 text-left">
@@ -67,8 +67,29 @@
 </template>
 
 <script>
+import Sessions from "~/components/home_page/sessions/Sessions";
+import SingleSession from "~/components/home_page/sessions/SingleSession";
+
 export default  {
-    name: "SessionsPreview"
+    name: "SessionsPreview",
+    methods: {
+        onAllTap () {
+            this.$root.$emit('indexChange', 2)
+        },
+        onSessionTap (args) {
+            this.$root.$emit('indexChange', 2)
+            this.$navigateTo(SingleSession, {
+                transition: {
+                    name: 'fade',
+                    duration: 200
+                },
+                props: {
+                    session: args
+                },
+                frame: "sessions"
+            });
+        },
+    }
 }
 </script>
 

@@ -3,7 +3,7 @@
         <Page actionBarHidden="true" backgroundSpanUnderStatusBar="true" androidStatusBarBackground="#FFD54A"
               statusBarStyle="light">
 
-            <BottomNavigation>
+            <BottomNavigation :selectedIndex="index" @selectedIndexChanged="tabChange">
                 <TabStrip>
                     <TabStripItem class="navigation__item">
                         <Label text="Home"></Label>
@@ -64,6 +64,23 @@
             About,
             Feeds,
             Index
+        },
+        data () {
+            return {
+                index: 0
+            }
+        },
+        created () {
+            const vm = this
+            this.$root.$on('indexChange', function (i) {
+                vm.index = i
+            })
+        },
+        methods: {
+            tabChange (i) {
+                // console.log(i.newIndex)
+                this.index = i.newIndex
+            }
         }
     };
 </script>

@@ -37,7 +37,7 @@
             </FlexboxLayout>
         </StackLayout>
 
-        <Button fontSize="18" class="bg-purple-c white rounded-full mt-12" @tap="onButtonTap">
+        <Button fontSize="18" class="bg-purple-c white rounded-full mt-12" >
             <FormattedString>
                 <Span text="Filter" class="white"/>
             </FormattedString>
