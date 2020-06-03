@@ -14,6 +14,7 @@
   "dependencies": {
     "@nativescript/theme": "~2.3.3",
     "nativescript-star-ratings": "^1.0.0",
+    "nativescript-systemui": "^1.0.14",
     "nativescript-tailwind": "^1.3.0",
     "nativescript-vue": "~2.5.0",
     "tailwindcss": "^1.4.6",

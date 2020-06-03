@@ -1,5 +1,5 @@
 <template>
-    <Page>
+    <Page androidStatusBarBackground="red">
         <MyActionBar>
             <CountDown />
         </MyActionBar>

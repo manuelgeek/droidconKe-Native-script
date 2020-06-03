@@ -1,6 +1,8 @@
 <template lang="html">
     <Frame id="main-app">
-        <Page actionBarHidden="true">
+        <Page actionBarHidden="true" backgroundSpanUnderStatusBar="true" androidStatusBarBackground="red"
+              statusBarStyle="light" @loaded="pageLoaded">
+
             <BottomNavigation>
                 <TabStrip>
                     <TabStripItem class="navigation__item">
@@ -23,26 +25,26 @@
 
                 <TabContentItem>
                     <Frame id="index">
-                        <Index />
+                        <Index/>
                     </Frame>
                 </TabContentItem>
 
                 <TabContentItem>
                     <Frame id="feeds">
-                        <Feeds />
+                        <Feeds/>
                     </Frame>
                 </TabContentItem>
 
                 <TabContentItem>
-                    <Frame id="sessions" >
-                        <Sessions />
+                    <Frame id="sessions">
+                        <Sessions/>
                     </Frame>
                 </TabContentItem>
 
                 <TabContentItem>
-<!--                    <Frame id="about">-->
-                        <About />
-<!--                    </Frame>-->
+                    <!--                    <Frame id="about">-->
+                    <About/>
+                    <!--                    </Frame>-->
                 </TabContentItem>
 
             </BottomNavigation>
@@ -56,23 +58,46 @@
     import About from "~/components/home_page/About";
     import Sessions from "~/components/home_page/sessions/Sessions";
 
-export default {
-  components: {
-      Sessions,
-      About,
-      Feeds,
-    Index
-  }
-};
+    const app = require("tns-core-modules/application");
+    const platform = require("tns-core-modules/platform");
+    const color = require("tns-core-modules/color");
+    export default {
+        components: {
+            Sessions,
+            About,
+            Feeds,
+            Index
+        },
+        // created() {
+        //     setTimeout ( () => { this.pageLoaded() } , 100 );
+        // },
+        methods: {
+            pageLoaded(args) {
+                // var page = args.object;
+                // console.log(page)
+                const View = android.view.View;
+
+                if (app.android && platform.device.sdkVersion >= '21') {
+                    var window = app.android.startActivity.getWindow();
+                    // set the status bar to Color.Transparent
+                    window.setStatusBarColor(new color.Color('#3489db').android);
+                    window.setNavigationBarColor(new color.Color('#3489db').android);
+                }
+            },
+
+        }
+    };
 </script>
 
 <style lang="scss" scoped>
     TabStrip {
         background-color: var(--black-color-c);
+
         TabStripItem {
             color: var(--white-color-c);
         }
     }
+
     TabContentItem {
         background-color: var(--ash-color-c);
     }
