@@ -6,46 +6,16 @@
             </StackLayout>
             <StackLayout orientation="horizontal" class="w-1/3 text-right" @tap="onAllTap">
                 <Label text="View All" fontSize="14" verticalAlignment="center" class="w-1/2 purple font-bold mr-2"/>
-                <Label text="+12" fontSize="12" class="w-1/2 purple bg-purple-light-c text-center rounded-full px-3 py-0 h-6"/>
+                <Label :text="`+${speakers.length}`" fontSize="12" class="w-1/2 purple bg-purple-light-c text-center rounded-full px-3 py-0 h-6"/>
             </StackLayout>
         </StackLayout>
         <ScrollView orientation="horizontal" class="w-full mt-3 mb-2">
             <StackLayout orientation="horizontal" height="165" class="mb-2">
-                <StackLayout orientation="vertical" horizontalAlignment="center" class="w-1/4 text-center mr-2" @tap="onSpeakerTap('speaker')">
+                <StackLayout v-for="(speaker, $index) in speakers" v-if="$index <= 10" orientation="vertical" horizontalAlignment="center" class="w-1/4 text-center mr-2" @tap="onSpeakerTap(speaker)">
                     <StackLayout class="p-3 bg-green-200 rounded-lg">
-                        <Image src="~/assets/images/speakers/AlexKoller.png"  class="w-20 h-20 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                        <Image :src="speaker.avatar"  class="w-20 h-20 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                     </StackLayout>
-                    <Label text="Allex Koller" fontSize="12" textWrap="true" class="w-24 gray font-bold mt-2"/>
-                </StackLayout>
-                <StackLayout orientation="vertical" horizontalAlignment="center" class="w-1/4 text-center mr-2" @tap="onSpeakerTap('speaker')">
-                    <StackLayout class="p-3 bg-green-200 rounded-lg">
-                        <Image src="~/assets/images/speakers/MichaelBukachi.png"  class="w-20 h-20 border-4 border-green-400 rounded-full" verticalAlignment="center" />
-                    </StackLayout>
-                    <Label text="Ahmed Maawy" fontSize="12" textWrap="true" class="w-24 gray font-bold mt-2"/>
-                </StackLayout>
-                <StackLayout orientation="vertical" horizontalAlignment="center" class="w-1/4 text-center mr-2" @tap="onSpeakerTap('speaker')">
-                    <StackLayout class="p-3 bg-green-200 rounded-lg">
-                        <Image src="~/assets/images/speakers/CarolWarugongo.png"  class="w-20 h-20 border-4 border-green-400 rounded-full" verticalAlignment="center" />
-                    </StackLayout>
-                    <Label text="Moyinoluwa Adeyemi" fontSize="12" textWrap="true" class="w-24 gray font-bold mt-2"/>
-                </StackLayout>
-                <StackLayout orientation="vertical" horizontalAlignment="center" class="w-1/4 text-center mr-2" @tap="onSpeakerTap('speaker')">
-                    <StackLayout class="p-3 bg-green-200 rounded-lg">
-                        <Image src="~/assets/images/speakers/AlexKoller.png"  class="w-20 h-20 border-4 border-green-400 rounded-full" verticalAlignment="center" />
-                    </StackLayout>
-                    <Label text="Allex Koller" fontSize="12" textWrap="true" class="w-24 gray font-bold mt-2"/>
-                </StackLayout>
-                <StackLayout orientation="vertical" horizontalAlignment="center" class="w-1/4 text-center mr-2" @tap="onSpeakerTap('speaker')">
-                    <StackLayout class="p-3 bg-green-200 rounded-lg">
-                        <Image src="~/assets/images/speakers/MichaelBukachi.png"  class="w-20 h-20 border-4 border-green-400 rounded-full" verticalAlignment="center" />
-                    </StackLayout>
-                    <Label text="Ahmed Maawy" fontSize="12" textWrap="true" class="w-24 gray font-bold mt-2"/>
-                </StackLayout>
-                <StackLayout orientation="vertical" horizontalAlignment="center" class="w-1/4 text-center mr-2" @tap="onSpeakerTap('speaker')">
-                    <StackLayout class="p-3 bg-green-200 rounded-lg">
-                        <Image src="~/assets/images/speakers/CarolWarugongo.png"  class="w-20 h-20 border-4 border-green-400 rounded-full" verticalAlignment="center" />
-                    </StackLayout>
-                    <Label text="Moyinoluwa Adeyemi" fontSize="12" textWrap="true" class="w-24 gray font-bold mt-2"/>
+                    <Label :text="speaker.name" fontSize="12" textWrap="true" class="w-24 gray font-bold mt-2"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
@@ -85,6 +55,19 @@ export default {
                 frame: "sessions"
             });
         },
+        getSpeakers () {
+            axios.get(`/events/${process.env.EVENT_SLUG}/speakers?per_page=100`).then((response) => {
+                this.$store.commit('updateSpeakers', response.data.data)
+            })
+        }
+    },
+    mounted () {
+        this.getSpeakers();
+    },
+    computed: {
+        speakers () {
+            return this.$store.state.speakers;
+        }
     }
 }
 </script>

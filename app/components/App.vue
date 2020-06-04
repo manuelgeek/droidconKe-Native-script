@@ -75,6 +75,9 @@
             this.$root.$on('indexChange', function (i) {
                 vm.index = i
             })
+            if (this.$store.state.event.length === 0){
+                this.$store.dispatch('getEvent')
+            }
         },
         methods: {
             tabChange (i) {

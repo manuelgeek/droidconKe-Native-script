@@ -15,3 +15,31 @@ export function onScroll () {
         }
     }
 }
+import moment from 'moment'
+
+export function humanReadable(value) {
+    return moment(value).format('MMM Do YY')
+}
+
+export function timeAm(value) {
+    return moment(value).format('a')
+}
+export function timeDay(value) {
+    return moment(value).format('DD')
+}
+export function time(value) {
+    return moment(value).format('h:mm')
+}
+
+export function hour(value) {
+    return moment(value).format('h:mm a')
+}
+
+export function truncateString(str, num) {
+    if (str.length <= num) {
+        return str
+    }
+    return str.slice(0, num) + '...'
+}
+
+

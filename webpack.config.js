@@ -13,6 +13,7 @@ const nsWebpack = require("nativescript-dev-webpack");
 const nativescriptTarget = require("nativescript-dev-webpack/nativescript-target");
 const { NativeScriptWorkerPlugin } = require("nativescript-worker-loader/NativeScriptWorkerPlugin");
 const hashSalt = Date.now().toString();
+const Dotenv = require('dotenv-webpack');
 
 module.exports = env => {
     // Add your custom Activities, Services and other android app components here.
@@ -275,6 +276,7 @@ module.exports = env => {
             ],
         },
         plugins: [
+            new Dotenv({ path: `./.env.${mode}` }),
             // ... Vue Loader plugin omitted
             // make sure to include the plugin!
             new VueLoaderPlugin(),
