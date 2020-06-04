@@ -10,17 +10,9 @@
         <StackLayout class="w-full bg-ash-c">
             <StackLayout orientation="horizontal" class="w-full mt-5 px-3">
                 <FlexboxLayout class="w-3/4">
-                    <StackLayout orientation="vertical" class="bg-yellow-c p-1 rounded-lg mr-5">
-                        <Label text="06" fontSize="20" class="purple roboto-slab" />
-                        <Label text="Day 1" class="font-bold" />
-                    </StackLayout>
-                    <StackLayout orientation="vertical" class="bg-green-100 p-1 rounded-lg mr-5">
-                        <Label text="07" fontSize="20" class="purple roboto-slab" />
-                        <Label text="Day 2" class="font-bold green" />
-                    </StackLayout>
-                    <StackLayout orientation="vertical" class="bg-green-100 p-1 rounded-lg mr-5">
-                        <Label text="08" fontSize="20" class="purple roboto-slab" />
-                        <Label text="Day 3" class="font-bold green" />
+                    <StackLayout v-for="(days, $index, $key) in schedule" :key="$key" orientation="vertical" :class="['p-1 rounded-lg mr-5', currentTab === $key ? 'bg-yellow-c' : 'bg-green-100']" @tap="showTab($key)">
+                        <Label :text="timeDay($index)" fontSize="20" class="purple roboto-slab" />
+                        <Label :text="['Day', $key+1 ]" :class="['font-bold', currentTab === $key ? 'black' : 'green']" />
                     </StackLayout>
                 </FlexboxLayout>
                 <StackLayout orientation="vertical" class="w-1/4">
@@ -29,101 +21,30 @@
                 </StackLayout>
             </StackLayout>
             <ScrollView>
-                <StackLayout orientation="vertical" class="mt-3 px-3">
-                    <StackLayout orientation="horizontal" class="w-full bg-white-c rounded-lg py-3 mt-3 mb-3" androidElevation="3" @tap="onItemTap(2)">
-                        <StackLayout class="w-2/12">
-                            <Label text="8:00 AM" lineHeight="-3" textWrap="true" fontSize="18" class="text-right purple roboto-slab" />
-                        </StackLayout>
-                        <StackLayout class="w-9/12">
-                            <StackLayout class="w-full pl-10">
-                                <Label text="Arrival" textWrap="true" fontSize="16" class="roboto-slab black" />
-                                <Label text="Registration and Breakfast" class="gray" fontSize="15" textWrap="true" />
+                <StackLayout v-for="(days, $index, $key) in schedule" :id="$index" :key="$key" orientation="vertical" class="mt-3 px-3">
+                    <StackLayout v-show="currentTab === $key" class="w-full" :id="`tabs-${$key}`">
+                        <StackLayout v-for="(session, $ind) in days" :key="$ind" orientation="horizontal" class="w-full bg-white-c rounded-lg py-3 mt-3 mb-3" androidElevation="3" @tap="onItemTap(session)">
+                            <StackLayout class="w-2/12">
+                                <Label :text="hour(session.start_date_time)" lineHeight="-3" textWrap="true" fontSize="18" class="text-right uppercase purple roboto-slab" />
                             </StackLayout>
-                        </StackLayout>
-                        <StackLayout verticalAlignment="center" class="w-1/12">
-                            <Image src.decode="font://&#xf005;" width="20" class="far gray t-36"></Image>
-                        </StackLayout>
-                    </StackLayout>
+                            <StackLayout class="w-9/12">
+                                <StackLayout class="w-full pl-10">
+                                    <Label :text="session.title" textWrap="true" fontSize="16" class="roboto-slab black" />
+                                    <Label :text="truncateString(session.description, 100)" class="gray" fontSize="15" textWrap="true" />
 
-                    <StackLayout orientation="horizontal" class="w-full bg-white-c rounded-lg py-3 mt-3 mb-3" androidElevation="3" @tap="onItemTap(2)">
-                        <StackLayout verticalAlignment="top" class="w-2/12">
-                            <Label text="8:00 AM" lineHeight="-3" textWrap="true" fontSize="18" class="text-right purple roboto-slab" />
-                        </StackLayout>
-                        <StackLayout class="w-9/12">
-                            <StackLayout class="w-full pl-10">
-                                <Label text="Keynote" textWrap="true" fontSize="16" class="roboto-slab black" />
-                                <Label text="Community on a Global Scale" class="gray" fontSize="15" textWrap="true" />
-
-                                <Label text="9:30AM - 10:00AM | ROOM 1" class="gray mt-3 uppercase" fontSize="13" textWrap="true" />
-                                <StackLayout orientation="horizontal">
-                                    <Image src.decode="font://&#xf17b;" width="16" class="fab green t-36 mr-2"></Image>
-                                    <Label text="Greg Fawson" class="green" fontSize="13" textWrap="true" />
+                                    <FlexboxLayout>
+                                        <Label v-if="!session.is_serviceSession" class="gray mt-3 uppercase" fontSize="13" textWrap="true" >{{ hour(session.start_date_time) }} - {{ hour(session.end_date_time) }} | </Label>
+                                        <Label v-for="(room, $r) in session.rooms" :key="$r" :text="room.title" fontSize="13" class="gray uppercase mt-3"/>
+                                    </FlexboxLayout>
+                                    <StackLayout v-if="!session.is_serviceSession" orientation="horizontal">
+                                        <Image src.decode="font://&#xf17b;" width="16" class="fab green t-36 mr-2"></Image>
+                                        <Label v-for="(speaker, $s) in session.speakers" :key="$s" :text="speaker.name" class="green" fontSize="13" textWrap="true" />
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
-                        </StackLayout>
-                        <StackLayout verticalAlignment="center" class="w-1/12">
-                            <Image src.decode="font://&#xf005;" width="20" class="far gray t-36"></Image>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout orientation="horizontal" class="w-full bg-white-c rounded-lg py-3 mt-3 mb-3" androidElevation="3" @tap="onItemTap(2)">
-                        <StackLayout verticalAlignment="top" class="w-2/12">
-                            <Label text="8:00 AM" lineHeight="-3" textWrap="true" fontSize="18" class="text-right purple roboto-slab" />
-                        </StackLayout>
-                        <StackLayout class="w-9/12">
-                            <StackLayout class="w-full pl-10">
-                                <Label text="Android 254" textWrap="true" fontSize="16" class="roboto-slab black" />
-                                <Label text="Community on a Global Scale" class="gray" fontSize="15" textWrap="true" />
-
-                                <Label text="9:30AM - 10:00AM | ROOM 1" class="gray mt-3 uppercase" fontSize="13" textWrap="true" />
-                                <StackLayout orientation="horizontal">
-                                    <Image src.decode="font://&#xf17b;" width="16" class="fab green t-36 mr-2"></Image>
-                                    <Label text="Greg Fawson" class="green" fontSize="13" textWrap="true" />
-                                </StackLayout>
+                            <StackLayout verticalAlignment="center" class="w-1/12">
+                                <Image src.decode="font://&#xf005;" width="20" class="far gray t-36"></Image>
                             </StackLayout>
-                        </StackLayout>
-                        <StackLayout verticalAlignment="center" class="w-1/12">
-                            <Image src.decode="font://&#xf005;" width="20" class="far gray t-36"></Image>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout orientation="horizontal" class="w-full bg-white-c rounded-lg py-3 mt-3 mb-3" androidElevation="3" @tap="onItemTap(2)">
-                        <StackLayout verticalAlignment="top" class="w-2/12">
-                            <Label text="8:00 AM" lineHeight="-3" textWrap="true" fontSize="18" class="text-right purple roboto-slab" />
-                        </StackLayout>
-                        <StackLayout class="w-9/12">
-                            <StackLayout class="w-full pl-10">
-                                <Label text="Community Opportunities" textWrap="true" fontSize="16" class="roboto-slab black " />
-                                <Label text="What it takes to run a community, the opportunities and available support" class="gray" fontSize="15" textWrap="true" />
-
-                                <Label text="9:30AM - 10:00AM | ROOM 1" class="gray mt-3 uppercase" fontSize="13" textWrap="true" />
-                                <StackLayout orientation="horizontal">
-                                    <Image src.decode="font://&#xf17b;" width="16" class="fab green t-36 mr-2"></Image>
-                                    <Label text="iHub" class="green" fontSize="13" textWrap="true" />
-                                </StackLayout>
-                            </StackLayout>
-                        </StackLayout>
-                        <StackLayout verticalAlignment="center" class="w-1/12">
-                            <Image src.decode="font://&#xf005;" width="20" class="far gray t-36"></Image>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout orientation="horizontal" class="w-full bg-white-c rounded-lg py-3 mt-3 mb-3" androidElevation="3" @tap="onItemTap(2)">
-                        <StackLayout class="w-2/12">
-                            <Label text="8:00 AM" lineHeight="-3" textWrap="true" fontSize="18" class="text-right purple roboto-slab" />
-                        </StackLayout>
-                        <StackLayout class="w-9/12">
-                            <StackLayout class="w-full pl-10">
-                                <Label text="Open Forum Panel" textWrap="true" fontSize="16" class="roboto-slab black" />
-                                <Label text="9:30AM - 10:00AM | ROOM 1" class="gray mt-3 uppercase" fontSize="13" textWrap="true" />
-                                <StackLayout orientation="horizontal">
-                                    <Image src.decode="font://&#xf17b;" width="16" class="fab green t-36 mr-2"></Image>
-                                    <Label text="Panel" class="green" fontSize="13" textWrap="true" />
-                                </StackLayout>
-                            </StackLayout>
-                        </StackLayout>
-                        <StackLayout verticalAlignment="center" class="w-1/12">
-                            <Image src.decode="font://&#xf005;" width="20" class="far gray t-36"></Image>
                         </StackLayout>
                     </StackLayout>
 
@@ -138,15 +59,28 @@
     import SingleSession from "~/components/home_page/sessions/SingleSession";
     import FilterSessions from "~/components/home_page/sessions/FilterSessions";
 
+    import { truncateString, timeDay, hour } from "~/services/helper";
+
     export default {
         name: 'Sessions',
         components: {MyActionBar},
+        mounted () {
+            this.getSchedule();
+        },
+        data () {
+            return {
+                currentTab: 0
+            }
+        },
         methods: {
+            truncateString,
+            hour,
+            timeDay,
             onItemTap (args) {
                 this.$navigateTo(SingleSession, {
                     transition: {
                         name: 'fade',
-                        duration: 500
+                        duration: 300
                     },
                     props: {
                         session: args
@@ -156,6 +90,19 @@
             },
             openModal () {
                 this.$showModal(FilterSessions, { });
+            },
+            getSchedule () {
+                axios.get(`/events/${process.env.EVENT_SLUG}/schedule?grouped=true`).then((response) => {
+                    this.$store.commit('updateSchedule', response.data.data)
+                })
+            },
+            showTab (id) {
+                this.currentTab = id
+            },
+        },
+        computed: {
+            schedule () {
+                return this.$store.state.schedule
             }
         }
     }

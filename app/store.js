@@ -7,7 +7,8 @@ export default new Vuex.Store({
     state: {
         event: [],
         sessions: [],
-        speakers: []
+        speakers: [],
+        schedule: [],
     },
     mutations: {
         updateEvent (state, event) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
         },
         updateSpeakers (state, speakers) {
             state.speakers = speakers
+        },
+        updateSchedule (state, schedule) {
+            state.schedule = schedule
         }
     },
     actions: {

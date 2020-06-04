@@ -21,7 +21,9 @@
                     <FlexboxLayout justifyContent="space-between" class="mt-3">
                         <StackLayout orientation="horizontal" verticalAlignment="center">
                             <Image src.decode="font://&#xf017;" class="fas t-36 green mr-2" width="17"></Image>
-                            <Label text="10:30 AM" fontSize="15" class="gray uppercase mr-10"/>
+                            <Label fontSize="15" class="gray uppercase mr-10">
+                                {{ hour(session.start_date_time) }} - {{ hour(session.end_date_time) }}
+                            </Label>
                             <Image src.decode="font://&#xf277;" class="fas t-36 green mr-2" width="16"></Image>
                             <Label text="Room 1" fontSize="15" class="gray uppercase"/>
                         </StackLayout>
@@ -37,10 +39,12 @@
                         <StackLayout orientation="vertical" verticalAlignment="center">
                             <StackLayout orientation="horizontal" verticalAlignment="center">
                                 <Image src.decode="font://&#xf17b;" width="16" class="fab gray t-36 mr-2"></Image>
-                                <Label text="Speaker:" class="gray" fontSize="14" textWrap="true"/>
+                                <Label :text="'Speaker' + session.speakers.length > 1 ? 's:' : ':'" class="gray" fontSize="14" textWrap="true"/>
                             </StackLayout>
-                            <Label text="Greg Fawson" class="green roboto-slab -mt-1" fontSize="18" textWrap="true"
-                                   @tap="onItemTap('speaker')"/>
+                            <StackLayout orientation="vertical">
+                                <Label v-for="(speaker, $s) in session.speakers" :key="$s" :text="speaker.name" class="green roboto-slab -mt-1" fontSize="18" textWrap="true"
+                                       @tap="onItemTap(session.speaker)"/>
+                            </StackLayout>
                         </StackLayout>
                         <Image src.decode="font://&#xf005;" width="20" class="far gray t-36"></Image>
                     </FlexboxLayout>
@@ -48,7 +52,7 @@
                     <StackLayout class="mt-5">
                         <Label text="Description:" fontSize="18" class="gray roboto-slab mt-2 mb-3"/>
                         <Label textWrap="true" fontSize="15" class="gray"
-                               text="Tart muffin marshmallow marzipan cake. Brownie liquorice marzipan chupa chups wafer jelly beans liquorice candy cake. Lollipop icing halvah marzipan candy canes liquorice. Sesame snaps brownie dessert chocolate bar wafer brownie. Cupcake gingerbread tiramisu jelly liquorice jujubes gummi bears. Cotton candy marshmallow cotton candy tiramisu jelly sweet caramels marshmallow halvah. Chupa chups muffin candy. Tart topping dessert sweet dessert dragée cake cupcake chupa chups. Gummies tootsie roll dragée jelly beans candy canes jelly-o chocolate carrot cake."
+                               :text="session.description"
                         />
 
                         <StackLayout class="mt-10">
@@ -73,11 +77,14 @@
     import SingleSpeaker from "~/components/home_page/speakers/SingleSpeaker";
     import SessionFeedback from "~/components/home_page/sessions/SessionFeedback";
 
+    import { hour } from "~/services/helper";
+
     export default {
         name: "SingleSession",
         components: {Avatar},
         props: ['session'],
         methods: {
+            hour,
             onButtonTap() {
                 this.$navigateTo(SessionFeedback, {
                     transition: {
