@@ -3,7 +3,7 @@
         <MyActionBar>
             <StackLayout orientation="horizontal" horizontalAlignment="center" @tap="openModal">
                 <Label text="Filter" fontSize="18" class="roboto-slab gray"/>
-                <Image src.decode="font://&#xf0b0;" width="20" class="fas purple t-36"></Image>
+                <Image src.decode="font://&#xf0b0;" width="18" class="fas purple t-36"></Image>
             </StackLayout>
         </MyActionBar>
 
@@ -24,30 +24,33 @@
                 <StackLayout class="w-full">
                     <StackLayout v-for="(days, $index, $key) in schedule" :id="$index" :key="$key" orientation="vertical" class="mt-3 px-3">
                         <StackLayout v-if="currentTab === $key" class="w-full" :id="`tabs-${$key}`">
-                            <StackLayout v-for="(session, $ind) in days" :key="$ind" orientation="horizontal" class="w-full bg-white-c rounded-lg py-3 mt-3 mb-3" androidElevation="3" @tap="session.is_serviceSession ? '' : onItemTap(session)">
-                                <StackLayout class="w-2/12">
-                                    <Label :text="hour(session.start_date_time)" lineHeight="-3" textWrap="true" fontSize="18" class="text-right uppercase purple roboto-slab" />
-                                </StackLayout>
-                                <StackLayout class="w-9/12">
-                                    <StackLayout class="w-full pl-10">
-                                        <Label :text="session.title" textWrap="true" fontSize="16" class="roboto-slab black" />
-                                        <Label :text="truncateString(session.description, 100)" class="gray" fontSize="15" textWrap="true" />
-                                        <StackLayout v-if="!session.is_serviceSession">
-                                            <FlexboxLayout>
-                                                <Label class="gray mt-3 uppercase" fontSize="13" textWrap="true" >{{ hour(session.start_date_time) }} - {{ hour(session.end_date_time) }} | </Label>
-                                                <Label v-for="(room, $r) in session.rooms" :key="$r" :text="room.title" fontSize="13" class="gray uppercase mt-3"/>
-                                            </FlexboxLayout>
-                                            <StackLayout orientation="horizontal">
-                                                <Image src.decode="font://&#xf17b;" width="16" class="fab green t-36 mr-2"></Image>
-                                                <Label v-for="(speaker, $s) in session.speakers" :key="$s" :text="speaker.name + ( $s+1 < session.speakers.length ? ', ' : '')" class="green" fontSize="13" textWrap="true" />
+                            <StackLayout v-if="days.length > 0">
+                                <StackLayout v-for="(session, $ind) in days" :key="$ind" orientation="horizontal" class="w-full bg-white-c rounded-lg py-3 mt-3 mb-3" androidElevation="3" @tap="session.is_serviceSession ? '' : onItemTap(session)">
+                                    <StackLayout class="w-2/12">
+                                        <Label :text="hour(session.start_date_time)" lineHeight="-3" textWrap="true" fontSize="18" class="text-right uppercase purple roboto-slab" />
+                                    </StackLayout>
+                                    <StackLayout class="w-9/12">
+                                        <StackLayout class="w-full pl-10">
+                                            <Label :text="session.title" textWrap="true" fontSize="16" class="roboto-slab black" />
+                                            <Label :text="truncateString(session.description, 100)" class="gray" fontSize="15" textWrap="true" />
+                                            <StackLayout v-if="!session.is_serviceSession">
+                                                <FlexboxLayout>
+                                                    <Label class="gray mt-3 uppercase" fontSize="13" textWrap="true" >{{ hour(session.start_date_time) }} - {{ hour(session.end_date_time) }} | </Label>
+                                                    <Label v-for="(room, $r) in session.rooms" :key="$r" :text="room.title" fontSize="13" class="gray uppercase mt-3"/>
+                                                </FlexboxLayout>
+                                                <StackLayout orientation="horizontal">
+                                                    <Image src.decode="font://&#xf17b;" width="16" class="fab green t-36 mr-2"></Image>
+                                                    <Label v-for="(speaker, $s) in session.speakers" :key="$s" :text="speaker.name + ( $s+1 < session.speakers.length ? ', ' : '')" class="green" fontSize="13" textWrap="true" />
+                                                </StackLayout>
                                             </StackLayout>
                                         </StackLayout>
                                     </StackLayout>
-                                </StackLayout>
-                                <StackLayout verticalAlignment="center" class="w-1/12">
-                                    <Image src.decode="font://&#xf005;" width="20" :class="['gray t-36', session.is_bookmarked ? 'fas' : 'far']"></Image>
+                                    <StackLayout verticalAlignment="center" class="w-1/12">
+                                        <Image src.decode="font://&#xf005;" width="20" :class="['gray t-36', session.is_bookmarked ? 'fas' : 'far']"></Image>
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
+                            <NoSession v-else />
                         </StackLayout>
 
                     </StackLayout>
@@ -63,11 +66,16 @@
     import FilterSessions from "~/components/home_page/sessions/FilterSessions";
 
     import { truncateString, timeDay, hour } from "~/services/helper";
+    import NoSession from "~/components/home_page/sessions/NoSession";
 
     export default {
         name: 'Sessions',
-        components: {MyActionBar},
+        components: {NoSession, MyActionBar},
         mounted () {
+            const vm = this
+            this.$root.$on('allSessions', function () {
+                vm.getSchedule()
+            })
             this.getSchedule();
         },
         data () {

@@ -22,7 +22,14 @@ export default new Vuex.Store({
         },
         updateSchedule (state, schedule) {
             state.schedule = schedule
-        }
+        },
+        filterSessions (state, { levels, formats, rooms }) {
+            Object.keys(state.schedule).forEach((key) => {
+                state.schedule[key] = state.schedule[key].filter(function (e) {
+                    return e.session_level.includes(levels) && e.session_format.includes(formats) && e.rooms.some(x => x.title.includes(rooms))
+                })
+            })
+        },
     },
     actions: {
         getEvent (context) {
