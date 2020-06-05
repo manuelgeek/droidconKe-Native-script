@@ -11,6 +11,10 @@
   "description": "droidconKe NativeScript Application",
   "license": "SEE LICENSE IN LICENCE.MD",
   "repository": "<fill-your-repository-here>",
+  "scripts": {
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
+  },
   "dependencies": {
     "@nativescript/theme": "~2.3.3",
     "axios": "^0.19.2",
@@ -33,6 +37,11 @@
     "@babel/preset-env": "~7.1.0",
     "babel-loader": "~8.0.0",
     "dotenv-webpack": "^1.8.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
     "nativescript-dev-webpack": "~1.5.1",
     "nativescript-vue-template-compiler": "~2.5.0",
     "node-sass": "^4.7.1",
