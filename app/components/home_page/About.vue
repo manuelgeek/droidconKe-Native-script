@@ -12,7 +12,7 @@
                     <FlexboxLayout justifyContent="space-around" flexWrap="wrap" flexDirection="row" class="w-full mt-3">
                         <StackLayout v-for="(member, $index) in members" :key="$index" orientation="vertical" horizontalAlignment="left" class="w-32 text-center mb-4">
                             <StackLayout class="p-3 bg-green-200 rounded-lg">
-                                <Image :src="member.photo"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                                <ImageCacheIt :src="member.photo"  class="w-24 h-24 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                             </StackLayout>
                             <Label :text="member.name" fontSize="14" textWrap="true" class="w-32 gray font-bold mt-2"/>
                             <Label :text="member.tagline" fontSize="12" textWrap="true" class="w-32 gray"/>

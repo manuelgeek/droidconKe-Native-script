@@ -13,7 +13,7 @@
             <StackLayout orientation="horizontal" height="165" class="mb-2">
                 <StackLayout v-for="(speaker, $index) in speakers" v-if="$index <= 10" orientation="vertical" horizontalAlignment="center" class="w-1/4 text-center mr-2" @tap="onSpeakerTap(speaker)">
                     <StackLayout class="p-3 bg-green-200 rounded-lg">
-                        <Image :src="speaker.avatar"  class="w-20 h-20 border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                        <ImageCacheIt :src="speaker.avatar"  class="w-20 h-20 border-4 border-green-400 rounded-full" verticalAlignment="center" />
                     </StackLayout>
                     <Label :text="speaker.name" fontSize="12" textWrap="true" class="w-24 gray font-bold mt-2"/>
                 </StackLayout>

@@ -10,7 +10,7 @@
                 <StackLayout class="py-3">
                     <StackLayout orientation="vertical" class="w-full bg-white-c rounded-lg px-3">
                         <Label :text="feed.body" class="gray" fontSize="15" textWrap="true"/>
-                        <Image v-if="feed.image !== null" :src="feed.image" class="w-full rounded-lg"/>
+                        <ImageCacheIt v-if="feed.image !== null" :src="feed.image" class="w-full rounded-lg"/>
                         <FlexboxLayout justifyContent="space-between">
                             <StackLayout orientation="horizontal" class="text-left">
                                 <Image src.decode="font://&#xf017;" class="fas t-36 gray-light mr-1" width="15"></Image>

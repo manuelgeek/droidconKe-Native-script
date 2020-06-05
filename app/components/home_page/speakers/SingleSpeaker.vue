@@ -6,7 +6,7 @@
                     <FlexboxLayout justifyContent="space-between" verticalAlignment="center" class="mt-16">
                         <Image src.decode="font://&#xf060;" class="fas t-36" width="20" @tap="$navigateBack({frame: 'sessions' })"></Image>
                         <StackLayout orientation="vertical" horizontalAlignment="center">
-                            <Image src="~/assets/images/app.png" width="40" height="40" />
+                            <ImageCacheIt src="~/assets/images/app.png" width="40" height="40" />
                         </StackLayout>
                         <StackLayout verticalAlignment="center">
                             <Avatar />
@@ -15,7 +15,7 @@
                 </StackLayout>
                 <StackLayout orientation="horizontal" class="w-full px-3" marginTop="-55">
                     <StackLayout class="p-3 bg-green-200 rounded-lg w-1/4 -mt-5" height="110" width="110">
-                        <Image :src="speaker.avatar"  class="border-4 border-green-400 rounded-full" verticalAlignment="center" />
+                        <ImageCacheIt :src="speaker.avatar"  class="border-4 border-green-400 rounded-full" verticalAlignment="center" />
                     </StackLayout>
                     <StackLayout class="px-3 mt-5">
                         <Label :text="speaker.name" fontSize="20" class="roboto-slab purple" textWrap="true" />

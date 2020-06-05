@@ -1,5 +1,5 @@
 <template>
-    <Image src="~/assets/images/app.png" width="40" height="40" verticalAlignment="center" horizontalAlignment="left" />
+    <ImageCacheIt src="~/assets/images/app.png" width="40" height="40" verticalAlignment="center" horizontalAlignment="left" />
 </template>
 
 <script>

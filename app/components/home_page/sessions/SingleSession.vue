@@ -9,7 +9,7 @@
                         <Image src.decode="font://&#xf060;" class="fas t-36" width="20"
                                @tap="$navigateBack({frame: 'sessions' })"></Image>
                         <StackLayout orientation="vertical" horizontalAlignment="center">
-                            <Image src="~/assets/images/app.png" width="40" height="40"/>
+                            <ImageCacheIt src="~/assets/images/app.png" width="40" height="40"/>
                             <Label text="Session Details" class="roboto-slab purple mt-3" fontSize="22"/>
                         </StackLayout>
                         <StackLayout verticalAlignment="center">
