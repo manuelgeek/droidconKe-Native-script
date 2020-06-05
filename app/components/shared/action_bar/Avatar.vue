@@ -5,19 +5,16 @@
 </template>
 
 <script>
-import Login from "~/components/Login";
 
 export default {
     name: 'Avatar',
     methods: {
         onItemTap() {
-            this.$navigateTo(Login, {
+            this.$navigator.navigate('/login', {
                 transition: {
                     name: 'fade',
-                    duration: 300
+                    duration: 200
                 },
-                frame: "main-app",
-                // clearHistory: true
             });
         },
     }

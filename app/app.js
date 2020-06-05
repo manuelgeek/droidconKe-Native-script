@@ -20,6 +20,10 @@ Vue.registerElement('StarRate', () => require('nativescript-star-ratings').StarR
 import { Feedback } from "nativescript-feedback";
 Vue.prototype.$feedback = new Feedback()
 
+import Navigator from 'nativescript-vue-navigator'
+import {routes} from './routes'
+Vue.use(Navigator, { routes })
+
 new Vue({
     store,
     render: h => h(App)

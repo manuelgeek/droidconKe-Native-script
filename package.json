@@ -26,6 +26,7 @@
     "nativescript-toasty": "^3.0.0-alpha.2",
     "nativescript-vue": "~2.5.0",
     "nativescript-vue-devtools": "^1.4.0",
+    "nativescript-vue-navigator": "^1.2.0",
     "tailwindcss": "^1.4.6",
     "tns-core-modules": "~6.5.0",
     "vuex": "^3.4.0"

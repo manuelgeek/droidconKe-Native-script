@@ -1,7 +1,7 @@
 <template>
     <Page>
         <ActionBar title="Sign In" class="bg-ash-c px-3" flat="true">
-            <NavigationButton text="Back" android.systemIcon="ic_menu_back" class="purple" @tap="$navigateBack({frame: 'main-app' })" />
+            <NavigationButton text="Back" android.systemIcon="ic_menu_back" class="purple" @tap="$navigator.back()" />
             <StackLayout>
                 <Label horizontalAlignment="center" text="Sign In" fontSize="20" class="purple roboto-slab" />
             </StackLayout>
@@ -21,9 +21,9 @@
 </template>
 
 <script>
-export default {
-    name: 'Login'
-}
+    export default {
+        name: 'Login'
+    }
 </script>
 
 <style lang="scss" scoped>
