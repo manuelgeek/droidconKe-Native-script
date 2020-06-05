@@ -2,7 +2,7 @@
     <Page>
         <MyActionBar>
             <StackLayout horizontalAlignment="center">
-                <Label text="Feeds" fontSize="20" class="roboto-slab purple" @tap="getFeeds"/>
+                <Label text="Feed" fontSize="20" class="roboto-slab purple" @tap="getFeeds"/>
             </StackLayout>
         </MyActionBar>
         <ListView class="w-full bg-ash-c px-2" for="feed in feeds" height="100%" @loadMoreItems="loadMore">
@@ -17,7 +17,7 @@
                                 <Label :text="humanReadable(feed.created_at) + ' - '+ hour(feed.created_at)" fontSize="13" class="font-bold gray-light uppercase"/>
                             </StackLayout>
                             <StackLayout orientation="horizontal" class="text-right">
-                                <Image src.decode="font://&#xf064;" class="fas t-36 gray mr-2" width="20"></Image>
+                                <Image src.decode="font://&#xf064;" class="fas t-36 gray mr-2" width="20" @tap="share(feed)"></Image>
                             </StackLayout>
                         </FlexboxLayout>
                     </StackLayout>
@@ -29,8 +29,8 @@
 
 <script>
     import MyActionBar from "~/components/shared/ActionBar";
-
-    import { hour, humanReadable } from "~/services/helper";
+    import { hour, humanReadable, truncateString } from "~/services/helper";
+    const SocialShare = require("nativescript-social-share");
 
     export default {
         name: "Feeds",
@@ -68,6 +68,9 @@
                         this.paginator = response.data.meta.paginator
                     })
                 }
+            },
+            share (feed) {
+                SocialShare.shareText(truncateString(feed.body, 100) +'\n'+ feed.url, process.env.APP_NAME);
             }
         }
 
