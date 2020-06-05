@@ -60,7 +60,10 @@
         methods: {
             onButtonTap() {
                 console.log("Button was pressed");
-                console.log(this.$store.state.event)
+                this.$feedback.success({
+                    title: "Awesome",
+                    message: "That was great!"
+                });
             },
             onScroll
         }

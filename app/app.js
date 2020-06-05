@@ -17,6 +17,9 @@ Vue.config.silent = (TNS_ENV === 'production')
 
 Vue.registerElement('StarRate', () => require('nativescript-star-ratings').StarRating);
 
+import { Feedback } from "nativescript-feedback";
+Vue.prototype.$feedback = new Feedback()
+
 new Vue({
     store,
     render: h => h(App)

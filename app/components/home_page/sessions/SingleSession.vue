@@ -21,32 +21,29 @@
                     <FlexboxLayout justifyContent="space-between" class="mt-3">
                         <StackLayout orientation="horizontal" verticalAlignment="center">
                             <Image src.decode="font://&#xf017;" class="fas t-36 green mr-2" width="17"></Image>
-                            <Label fontSize="15" class="gray uppercase mr-10">
-                                {{ hour(session.start_date_time) }} - {{ hour(session.end_date_time) }}
-                            </Label>
+                            <Label :text="hour(session.start_date_time)" fontSize="15" class="gray uppercase mr-10" />
                             <Image src.decode="font://&#xf277;" class="fas t-36 green mr-2" width="16"></Image>
-                            <Label text="Room 1" fontSize="15" class="gray uppercase"/>
+                            <Label v-for="(room, $r) in session.rooms" :key="$r" :text="room.title" fontSize="15" class="gray uppercase"/>
                         </StackLayout>
-                        <Label textWrap="true" fontSize="13" text="#beginner"
+                        <Label textWrap="true" fontSize="13" :text="'#' + session.session_level"
                                class="uppercase white bg-black-c rounded-full py-1 px-2"/>
                     </FlexboxLayout>
 
                     <GridLayout class="w-full mt-5">
-                        <Image src="~/assets/images/other.png" class="w-full rounded-lg"/>
+                        <Image :src="session.session_image" class="w-full rounded-lg"/>
                     </GridLayout>
 
                     <FlexboxLayout justifyContent="space-between" class="mt-5">
                         <StackLayout orientation="vertical" verticalAlignment="center">
                             <StackLayout orientation="horizontal" verticalAlignment="center">
                                 <Image src.decode="font://&#xf17b;" width="16" class="fab gray t-36 mr-2"></Image>
-                                <Label :text="'Speaker' + session.speakers.length > 1 ? 's:' : ':'" class="gray" fontSize="14" textWrap="true"/>
+                                <Label :text="'Speaker' + (session.speakers.length > 1 ? 's:' : ':')" class="gray" fontSize="14" textWrap="true"/>
                             </StackLayout>
                             <StackLayout orientation="vertical">
-                                <Label v-for="(speaker, $s) in session.speakers" :key="$s" :text="speaker.name" class="green roboto-slab -mt-1" fontSize="18" textWrap="true"
-                                       @tap="onItemTap(session.speaker)"/>
+                                <Label v-for="(speaker, $s) in session.speakers" :key="$s" :text="speaker.name" class="green roboto-slab -mt-1" fontSize="18" textWrap="true" @tap="onItemTap(speaker)"/>
                             </StackLayout>
                         </StackLayout>
-                        <Image src.decode="font://&#xf005;" width="20" class="far gray t-36"></Image>
+                        <Image src.decode="font://&#xf005;" width="20" :class="['gray t-36', session.is_bookmarked ? 'fas' : 'far']"></Image>
                     </FlexboxLayout>
 
                     <StackLayout class="mt-5">
