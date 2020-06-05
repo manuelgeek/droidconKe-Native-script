@@ -57,7 +57,7 @@
                         </StackLayout>
                         <FlexboxLayout justifyContent="flex-end" class="mt-5 mb-5 w-full">
                             <StackLayout width="50" height="50" class="bg-white-c rounded-full"
-                                         horizontalAlignment="center" verticalAlignment="center" androidElevation="3">
+                                         horizontalAlignment="center" verticalAlignment="center" androidElevation="3" @tap="share(session)">
                                 <Image src.decode="font://&#xf064;" class="fas t-36 gray" width="20"></Image>
                             </StackLayout>
                         </FlexboxLayout>
@@ -70,11 +70,12 @@
 
 <script>
     import Avatar from "~/components/shared/action_bar/Avatar";
-    import {onScroll} from "~/services/helper";
+    import {onScroll, truncateString} from "~/services/helper";
     import SingleSpeaker from "~/components/home_page/speakers/SingleSpeaker";
     import SessionFeedback from "~/components/home_page/sessions/SessionFeedback";
 
     import { hour } from "~/services/helper";
+    const SocialShare = require("nativescript-social-share");
 
     export default {
         name: "SingleSession",
@@ -107,6 +108,9 @@
                     frame: "sessions"
                 });
             },
+            share (session) {
+                SocialShare.shareText(truncateString(session.description, 150) +'\n'+ 'https://droidcon.co.ke', process.env.APP_NAME);
+            }
         }
     }
 </script>
