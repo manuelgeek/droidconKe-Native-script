@@ -11,7 +11,7 @@
         </StackLayout>
         <ScrollView orientation="horizontal" class="w-full mt-3 mb-3">
             <StackLayout orientation="horizontal" height="290">
-                <StackLayout v-for="(session, $index) in sessions" v-if="!session.is_serviceSession && $index <= 10" :key="$index" orientation="vertical" class="w-2/3 rounded-lg bg-white-c mr-3" @tap="onSessionTap(session)">
+                <StackLayout v-for="(session, $index) in sessions" v-if="!session.is_serviceSession" :key="$index" orientation="vertical" class="w-2/3 rounded-lg bg-white-c mr-3" @tap="onSessionTap(session)">
                     <Image :src="session.session_image"  class="w-full" height="175" verticalAlignment="center" />
                     <DockLayout class="px-3 mt-2">
                         <StackLayout orientation="horizontal" dock="left" class="w-1/2 text-left">

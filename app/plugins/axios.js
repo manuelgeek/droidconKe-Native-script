@@ -5,7 +5,7 @@ export function initialize(store) {
         // config.headers['Access-Control-Allow-Origin']=  '*';
         config.headers['Content-Type']=  'application/json';
         config.headers['Api-Authorization-Key']=  process.env.API_KEY;
-        console.log('Starting Request', config)
+        // console.log('Starting Request', config)
         // config.headers['Authorization'] = `Bearer ${decrypted}`
         return config
     })
