@@ -9,9 +9,14 @@
 
 ## Build Setup
 
+**NOTE: This App uses droidconKe APIs which are not public, if interested you can email for sample responses**
+
 ```bash
 # install dependencies
 $ npm install
+
+# set up you env
+$ cp .env.example .env
 
 # build android
 $ tns run android
