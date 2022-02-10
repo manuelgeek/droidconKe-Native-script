@@ -44,7 +44,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "nativescript-dev-webpack": "~1.5.1",
     "nativescript-vue-template-compiler": "~2.5.0",
-    "node-sass": "^4.7.1",
+    "node-sass": "^7.0.0",
     "vue-loader": "~15.9.0"
   },
   "gitHead": "2250137db8c1e0bd0eb543e8e4563cb71480c00d",
