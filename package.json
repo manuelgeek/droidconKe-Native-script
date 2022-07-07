@@ -18,7 +18,7 @@
   "dependencies": {
     "@nativescript/theme": "~2.3.3",
     "axios": "^0.19.2",
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "nativescript-clipboard": "^1.2.0",
     "nativescript-feedback": "^1.3.12",
     "nativescript-image-cache-it": "^5.0.0-beta.20",
